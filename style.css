@@ -1,0 +1,136 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Martian Mono', sans-serif;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+a.no-underline {
+  text-decoration: none;
+}
+
+.red {
+  color: #B52F2F !important;
+}
+
+.navbar {
+  display: flex;
+  position: sticky;
+  z-index: 1000;
+  top: 0;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  /* padding: 1rem 2rem; */
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo img {
+  height: 6rem;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav li {
+  list-style: none;
+  margin-left: 2rem;
+}
+
+.navbar-nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .navbar-nav {
+    display: none;
+  }
+}
+
+.hero {
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+}
+
+.hero .cta {
+  margin-top: 2rem;
+}
+
+.paragraph-with-image {
+  display: flex;
+  align-items: center;
+}
+
+.paragraph-with-image img {
+  max-width: 128px;
+  margin-right: 2rem;
+}
+
+.lead {
+  /* color: #4a4a4a */
+}
+
+.hero a {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.urbit-id {
+  background-color: #f2f2f2;
+  transition: background-color 0.3s ease;
+}
+
+.urbit-id:hover {
+  background-color: #ddd;
+}
+
+.section {
+  margin-top: 8rem;
+}
+
+.name {
+  text-decoration: underline;
+}
+
+.person {
+  margin-top: 2.5rem;
+}
+
+footer {
+  margin-top: 4rem;
+  padding-bottom: 2rem;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-left {
+  display: flex;
+}
+
+.social-media {
+  width: 24px;
+  margin-right: 1rem;
+  color: #a3a3a3;
+}
+
+.copyright {
+  text-align: right;
+}
