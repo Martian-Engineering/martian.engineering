@@ -1,4 +1,7 @@
+'use client';
+
 import '@/global.scss';
+import * as React from 'react';
 
 import DefaultLayout from '@/components/page/DefaultLayout';
 import Navigation from '@/components/Navigation';
@@ -10,10 +13,14 @@ import Row from '@/components/Row';
 import Badge from '@/components/Badge';
 import Text from '@/components/Text';
 import DebugGrid from '@/components/DebugGrid';
+import MarsMatrixLoader from '@/components/MarsMatrixLoader';
+import BlockLoader from '@/components/BlockLoader';
+import Divider from '@/components/Divider';
+import HoverComponentTrigger from '@/components/HoverComponentTrigger';
 
-export const dynamic = 'force-static';
+// export const dynamic = 'force-static';
 
-export default async function Page(props) {
+export default function Page(props) {
   return (
     <DefaultLayout previewPixelSRC="https://intdev-global.s3.us-west-2.amazonaws.com/template-app-icon.png">
       <Navigation 
@@ -27,6 +34,15 @@ export default async function Page(props) {
       />
       
       <br />
+      
+      <Grid>
+        <Card>
+          <MarsMatrixLoader />
+        </Card>
+      </Grid>
+      
+      <br />
+
       <Grid>
         <Row>
           MARTIAN ENGINEERING
