@@ -9,8 +9,6 @@
 .root {
   display: block;
   border-radius: 50%;
-  // box-shadow: 
-  //   0 0 40px rgba(255, 107, 107, 0.3),
-  //   inset 0 0 20px rgba(204, 68, 68, 0.2);
-  // background: radial-gradient(circle at 30% 30%, rgba(255, 107, 107, 0.1), transparent);
+  border: 0.25ch solid #cc4444;
+  padding: 1ch;
 }
