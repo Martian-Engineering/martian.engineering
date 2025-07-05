@@ -7,7 +7,7 @@ import * as React from 'react';
 interface MarsMatrixLoaderProps {
   rows?: number;
   direction?: undefined | 'top-to-bottom' | 'left-to-right';
-  mode?: undefined | 'greek' | 'katakana';
+  mode?: undefined | 'greek' | 'katakana' | 'martian';
 }
 
 // TODO(jimmylee)
@@ -17,7 +17,15 @@ interface MarsMatrixLoaderProps {
 const LINE_HEIGHT = 20;
 const CHARACTER_WIDTH = 9.6;
 
-function onTextGeneration({ mode = 'greek' }) {
+const MARTIAN_TEXT = 'martianengineering';
+
+function onTextGeneration({ mode = 'greek', rowIndex = 0, colIndex = 0, offset = 0 }) {
+  if (mode === 'martian') {
+    // For left-to-right: use the offset to keep text coherent as it scrolls
+    const textPosition = (colIndex + Math.floor(offset / CHARACTER_WIDTH)) % MARTIAN_TEXT.length;
+    return MARTIAN_TEXT[textPosition];
+  }
+  
   if (mode === 'greek') {
     const isUppercase = Math.random() < 0.5;
 
@@ -36,8 +44,13 @@ function onTextGeneration({ mode = 'greek' }) {
   return '0';
 }
 
-const MarsMatrixLoader: React.FC<MarsMatrixLoaderProps> = ({ rows = 25, direction = 'top-to-bottom', mode = 'greek' }) => {
+const MarsMatrixLoader: React.FC<MarsMatrixLoaderProps> = ({ rows = 25, direction = 'top-to-bottom', mode = 'martian' }) => {
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
+  const [dimensions, setDimensions] = React.useState<{ width: number; height: number }>(() => {
+    // Calculate initial dimensions
+    const size = rows * LINE_HEIGHT;
+    return { width: size, height: size };
+  });
 
   React.useEffect(() => {
     const canvas = canvasRef.current;
@@ -64,6 +77,9 @@ const MarsMatrixLoader: React.FC<MarsMatrixLoaderProps> = ({ rows = 25, directio
       if (ctx) {
         ctx.scale(dpr, dpr);
       }
+
+      // Update state dimensions
+      setDimensions({ width: size, height: size });
     };
 
     resizeCanvas();
@@ -115,7 +131,8 @@ const MarsMatrixLoader: React.FC<MarsMatrixLoaderProps> = ({ rows = 25, directio
           ctx.globalCompositeOperation = 'source-over';
 
           ypos.forEach((y, ind) => {
-            const text = onTextGeneration({ mode });
+            const rowIndex = Math.floor(y / LINE_HEIGHT);
+            const text = onTextGeneration({ mode, rowIndex, colIndex: ind });
             const x = ind * CHARACTER_WIDTH;
             
             // Check if position is within circle
@@ -149,6 +166,7 @@ const MarsMatrixLoader: React.FC<MarsMatrixLoaderProps> = ({ rows = 25, directio
       } else if (direction === 'left-to-right') {
         const totalRows = rows; // Use rows directly for total rows
         const xpos: number[] = Array(totalRows).fill(0);
+        const rowOffsets: number[] = Array(totalRows).fill(0).map((_, i) => i * 3); // Stagger rows slightly
 
         const matrix = () => {
           const themeTextColor = getComputedStyle(document.body).getPropertyValue('--theme-text').trim();
@@ -169,7 +187,9 @@ const MarsMatrixLoader: React.FC<MarsMatrixLoaderProps> = ({ rows = 25, directio
           ctx.globalCompositeOperation = 'source-over';
 
           xpos.forEach((x, ind) => {
-            const text = onTextGeneration({ mode });
+            // Calculate which character to show based on position
+            const charIndex = (Math.floor(x / CHARACTER_WIDTH) + rowOffsets[ind]) % MARTIAN_TEXT.length;
+            const text = mode === 'martian' ? MARTIAN_TEXT[charIndex] : onTextGeneration({ mode, rowIndex: ind, colIndex: Math.floor(x / CHARACTER_WIDTH) });
             const y = ind * LINE_HEIGHT;
             
             // Check if position is within circle
@@ -212,7 +232,11 @@ const MarsMatrixLoader: React.FC<MarsMatrixLoaderProps> = ({ rows = 25, directio
 
   return (
     <div className={styles.container}>
-      <canvas className={styles.root} ref={canvasRef} />
+      <canvas 
+        className={styles.root} 
+        ref={canvasRef}
+        style={{ width: `${dimensions.width}px`, height: `${dimensions.height}px` }}
+      />
     </div>
   );
 };
