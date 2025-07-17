@@ -73,3 +73,7 @@ The site appears to be configured for GitHub Pages deployment via the CNAME file
 - Team member information and project details are hardcoded
 - Email contacts: team@martian.engineering (general), clients@martian.engineering (business)
 - Urbit IDs are marked with class "urbit-id" for tooltip functionality
+
+## Local Server Configuration
+
+- This site runs on port 3005

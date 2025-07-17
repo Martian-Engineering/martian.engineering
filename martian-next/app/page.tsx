@@ -6,7 +6,6 @@ import * as React from 'react';
 import DefaultLayout from '@/components/page/DefaultLayout';
 import Navigation from '@/components/Navigation';
 import Grid from '@/components/Grid';
-import Block from '@/components/Block';
 import Card from '@/components/Card';
 import Button from '@/components/Button';
 import Row from '@/components/Row';
@@ -17,6 +16,7 @@ import MarsMatrixLoader from '@/components/MarsMatrixLoader';
 import BlockLoader from '@/components/BlockLoader';
 import Divider from '@/components/Divider';
 import HoverComponentTrigger from '@/components/HoverComponentTrigger';
+import ClientLogos from '@/components/ClientLogos';
 
 // export const dynamic = 'force-static';
 
@@ -36,38 +36,58 @@ export default function Page(props) {
       <br />
       
       <Grid>
-        <Card>
-          <MarsMatrixLoader />
-        </Card>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
+          <div style={{ flex: '1 1 300px', minWidth: '300px' }}>
+            <Text style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem', display: 'block', lineHeight: '1.2' }}>
+              MARTIAN ENGINEERING
+            </Text>
+            <Text style={{ fontSize: '1.2rem', display: 'block', marginBottom: '1.5rem' }}>Hard Problems, Modern Solutions</Text>
+            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+              <a href="mailto:clients@martian.engineering">
+                <Button>Hire Us</Button>
+              </a>
+              <a href="#about">
+                <Button theme="SECONDARY">Learn More</Button>
+              </a>
+            </div>
+          </div>
+          <div style={{ flex: '1 1 400px', minWidth: '400px' }}>
+            <MarsMatrixLoader direction="left-to-right" />
+          </div>
+        </div>
       </Grid>
-      
-      <br />
 
-      <Grid>
-        <Row>
-          MARTIAN ENGINEERING
-        </Row>
-        <Row>Hard Problems, Modern Solutions</Row>
-      </Grid>
-
-      <DebugGrid />
-
-      <Grid>
+      <Grid id="about">
         <Card title="ABOUT">
           We are a team of senior engineers who solve complex technical problems across diverse domains. 
-          Our expertise spans data engineering, network protocols, distributed systems, embedded systems, and security. 
+          Our expertise spans data engineering, network protocols, infrastructure, distributed systems, embedded systems, and security. 
           We combine deep technical knowledge with sophisticated AI development workflows to deliver robust, 
           production-ready solutions with exceptional thoroughness and quality.
-          <br />
-          <br />
-          <a href="mailto:clients@martian.engineering">
+          {/* <br />
+          <br /> */}
+          {/* <a href="mailto:clients@martian.engineering">
             <Button>Contact us</Button>
-          </a>
+          </a> */}
         </Card>
       </Grid>
 
       <Grid>
-        <Card title="WHAT WE DO">
+        <div style={{ marginBottom: '4rem' }}>
+          <h2 style={{ 
+            textAlign: 'center', 
+            fontSize: '1.5rem', 
+            fontWeight: 'bold', 
+            marginBottom: '2rem',
+            letterSpacing: '0.1em'
+          }}>
+            OUR CLIENTS
+          </h2>
+          <ClientLogos />
+        </div>
+      </Grid>
+
+      <Grid>
+        {/* <Card title="WHAT WE DO">
           Recent projects include:
           <br />
           <br />
@@ -83,22 +103,22 @@ export default function Page(props) {
           We also help established engineering teams adopt AI development practices responsibly. We've trained teams 
           at major tech companies on integrating AI tools effectively while maintaining security practices and 
           compliance requirements—knowledge gained from years of building our own disciplined, production-ready workflows.
-        </Card>
+        </Card> */}
       </Grid>
 
       <Grid>
-        <Card title="WE'RE HIRING">
+        {/* <Card title="WE'RE HIRING">
           We're looking for engineers who get things done, love to learn, and want to use the best tools available to build high-quality software across diverse industries and tech stacks. If you're excited about joining a fast-paced environment and becoming top-notch at leveraging AI to build real software, we'd love to hear from you.
           <br />
           <br />
           <a href="mailto:jobs@martian.engineering">
             <Button>Send us your resume</Button>
           </a>
-        </Card>
+        </Card> */}
       </Grid>
 
       <Grid>
-        <Card title="PRINCIPALS">
+        <Card title="OWNERS">
           <Card title="Ted Blackman" mode="left">
             Ted has deep expertise in managing technical projects, including a dozen-person team developing an operating system and network protocol, as Chief Technical Officer of the Urbit Foundation. Previous experience includes robotics, distributed systems, data engineering, full-stack web development, and embedded systems. He was a YC founder in 2011, and holds a degree in physics from MIT.
           </Card>
