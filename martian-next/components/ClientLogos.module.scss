@@ -1,0 +1,97 @@
+.container {
+  width: 100%;
+  padding: 2rem 0;
+  overflow: hidden;
+}
+
+.marquee {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  padding: 2rem 0;
+  background: transparent;
+  animation: scroll 30s linear infinite;
+  white-space: nowrap;
+  
+  &:hover {
+    animation-play-state: paused;
+  }
+  
+  @media (max-width: 768px) {
+    gap: 3rem;
+    animation-duration: 20s;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 2rem));
+  }
+}
+
+.logoLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  transition: opacity 0.3s ease;
+  text-decoration: none;
+  background: transparent;
+  color: inherit;
+  flex-shrink: 0;
+  
+  &:hover {
+    background: transparent;
+    color: inherit;
+    
+    .logoWrapper {
+      opacity: 1;
+    }
+  }
+  
+  &:focus {
+    outline: none;
+    background: transparent;
+    color: inherit;
+  }
+  
+  &:active {
+    background: transparent;
+    color: inherit;
+  }
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 120px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  background: transparent;
+  
+  @media (max-width: 768px) {
+    height: 80px;
+  }
+}
+
+.logoWrapper.needsInvert {
+  filter: brightness(0) invert(1);
+}
+
+.logo {
+  object-fit: contain;
+  width: auto;
+  height: 100%;
+  max-width: 250px;
+}

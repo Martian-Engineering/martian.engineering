@@ -35,3 +35,7 @@ npx serve .
 ## Deployment
 
 The site appears to be configured for GitHub Pages deployment via the CNAME file pointing to the custom domain.
+
+## Local Server Configuration
+
+- This site runs on port 3005
