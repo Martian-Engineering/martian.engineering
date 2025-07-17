@@ -1,0 +1,8 @@
+# OS files
+.DS_Store
+
+# Directories
+www-sacred/
+
+# Local configuration
+.claude/settings.local.json
