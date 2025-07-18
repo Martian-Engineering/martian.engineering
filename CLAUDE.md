@@ -35,3 +35,18 @@ npx serve .
 ## Deployment
 
 The site appears to be configured for GitHub Pages deployment via the CNAME file pointing to the custom domain.
+
+## Code Style and Conventions
+
+- Uses Martian Mono font family from Google Fonts for consistent branding
+- CSS follows a simple, responsive approach with max-width container (800px)
+- Brand color: #B52F2F (red) used for accents and CTAs
+- Minimal JavaScript - only for interactive tooltip functionality on Urbit IDs
+- HTML structure is semantic and accessible
+
+## Content Management
+
+- All content is directly embedded in index.html
+- Team member information and project details are hardcoded
+- Email contacts: team@martian.engineering (general), clients@martian.engineering (business)
+- Urbit IDs are marked with class "urbit-id" for tooltip functionality
