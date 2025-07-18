@@ -3,6 +3,7 @@ import styles from './page.module.scss';
 
 import DefaultLayout from '@/components/page/DefaultLayout';
 import DefaultActionBar from '@/components/page/DefaultActionBar';
+import Text from '@/components/Text';
 import Grid from '@/components/Grid';
 import Button from '@/components/Button';
 import Row from '@/components/Row';
@@ -36,10 +37,14 @@ export default async function Page() {
               <span style={{ color: 'red' }}>MARTIAN ENGINEERING</span> <Badge>Hard problems, modern solutions</Badge>
             </Row>
             <br />
-            <Row>We are a team of senior engineers who solve complex technical problems across diverse domains. 
-              Our expertise spans data engineering, network protocols, infrastructure, distributed systems, embedded systems, and security. 
-              We combine deep technical knowledge with sophisticated AI development workflows to deliver robust, 
-              production-ready solutions with exceptional thoroughness and quality.</Row>
+            <Row>
+              <Text>
+                  We are a team of senior engineers who solve complex technical problems across diverse domains. 
+                  Our expertise spans data engineering, network protocols, infrastructure, distributed systems, embedded systems, and security. 
+                  We combine deep technical knowledge with sophisticated AI development workflows to deliver robust, 
+                  production-ready solutions with exceptional thoroughness and quality.
+               </Text>
+              </Row>
           </Grid>
 
           <NavigationActions />

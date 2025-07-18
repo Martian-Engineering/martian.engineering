@@ -1,8 +1,12 @@
 +++
-client = "Sweetspot"
+sort_index = 2
+short_name = "SWEETSPOT"
+full_name = "SWEETSPOT"
 project = "USASpending Data Pipeline"
-engagement_length = "4 months"
-technologies_used = "Python, Pydantic, Clickhouse, PostgreSQL, AWS RDS, Turbopuffer"
+logo = "/client-logos/sweetspot.svg"
+website = "https://sweetspot.so"
+duration = "6 months"
+technologies = ["Python", "Pydantic", "Clickhouse", "PostgreSQL", "AWS RDS", "Turbopuffer"]
 +++
 
 We designed, built and deployed an ETL pipeline that pulls 20 years of federal spending data from https://usaspending.gov into an on-prem RDS instance within Sweetspot's cloud, enriching their government contract data with historical awards.
