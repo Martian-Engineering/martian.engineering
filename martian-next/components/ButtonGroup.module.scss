@@ -1,0 +1,18 @@
+.root {
+  display: inline-flex;
+  
+  button:not(:last-child),
+  & > div:not(:last-child) {
+    border-right: 0;
+  }
+}
+
+.full {
+  display: flex;
+  width: 100%;
+  
+  button,
+  & > div {
+    flex: 1;
+  }
+}

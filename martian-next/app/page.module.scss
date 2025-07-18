@@ -1,0 +1,26 @@
+.gridContainer {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  gap: 2rem;
+  width: 95%;
+  
+  @media (max-width: 1064px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.leftColumn {
+  // Main content styles
+}
+
+.rightColumn {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  
+  @media (max-width: 1064px) {
+    padding-top: 0;
+    margin-top: 2rem;
+  }
+}

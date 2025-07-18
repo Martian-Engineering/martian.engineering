@@ -1,7 +1,7 @@
 import styles from '@/components/ActionButton.module.scss';
 
 import * as React from 'react';
-import * as Utilities from '@common/utilities';
+import * as Utilities from '@/common/utilities';
 
 interface ActionButtonProps {
   onClick?: () => void;
