@@ -1,0 +1,31 @@
+.dropdown {
+  width: 100%;
+  padding: calc(var(--font-size) * 0.5);
+  font-size: inherit;
+  font-family: inherit;
+  background-color: var(--theme-background);
+  color: var(--theme-text);
+  border: 1px solid var(--theme-border);
+  cursor: pointer;
+  margin-bottom: calc(var(--font-size) * 1);
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right calc(var(--font-size) * 0.5) center;
+  background-size: 20px;
+  padding-right: calc(var(--font-size) * 2.5);
+  
+  &:focus {
+    outline: 2px solid var(--theme-primary);
+    outline-offset: 2px;
+  }
+  
+  option {
+    background-color: var(--theme-background);
+    color: var(--theme-text);
+  }
+}
+
+.mobileContainer {
+  width: 100%;
+}

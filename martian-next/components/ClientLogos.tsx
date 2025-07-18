@@ -1,6 +1,7 @@
 import styles from '@/components/ClientLogos.module.scss';
 import * as React from 'react';
 import Image from 'next/image';
+import clientsData from '@/data/clients.json';
 
 interface Client {
   name: string;
@@ -9,35 +10,7 @@ interface Client {
   needsInvert?: boolean;
 }
 
-const clients: Client[] = [
-  {
-    name: 'NEAR Foundation',
-    logo: '/client-logos/near-foundation-white.svg',
-    url: 'https://near.foundation/'
-  },
-  {
-    name: 'Sweetspot',
-    logo: '/client-logos/sweetspot.svg',
-    url: 'https://sweetspot.so'
-  },
-  {
-    name: 'Tlon',
-    logo: '/client-logos/tlon.svg',
-    url: 'https://tlon.io',
-    needsInvert: true
-  },
-  {
-    name: 'Extend',
-    logo: '/client-logos/extend.svg',
-    url: 'https://www.extend.ai/',
-    needsInvert: true
-  },
-  {
-    name: 'supplyco',
-    logo: '/client-logos/supplyco-logo.svg',
-    url: 'https://www.supplyco.ai/'
-  }
-];
+const clients: Client[] = clientsData;
 
 const ClientLogos: React.FC = () => {
   // Duplicate the clients array to create seamless loop
