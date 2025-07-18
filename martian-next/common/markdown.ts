@@ -8,6 +8,7 @@ export interface ClientMetadata {
   website: string;
   duration: string;
   technologies: string[];
+  resources?: string[];
 }
 
 export interface ClientData extends ClientMetadata {
@@ -20,13 +21,63 @@ export interface ClientData extends ClientMetadata {
 function parseToml(tomlString: string): ClientMetadata {
   const lines = tomlString.trim().split('\n');
   const result: any = {};
+  let i = 0;
   
-  for (const line of lines) {
-    const trimmedLine = line.trim();
-    if (!trimmedLine || trimmedLine.startsWith('#')) continue;
+  while (i < lines.length) {
+    const trimmedLine = lines[i].trim();
+    if (!trimmedLine || trimmedLine.startsWith('#')) {
+      i++;
+      continue;
+    }
+    
+    // Handle array of tables [[resources]]
+    if (trimmedLine.startsWith('[[') && trimmedLine.endsWith(']]')) {
+      const arrayName = trimmedLine.slice(2, -2).trim();
+      if (!result[arrayName]) {
+        result[arrayName] = [];
+      }
+      
+      const tableEntry: any = {};
+      i++;
+      
+      // Parse entries until we hit another section or end
+      while (i < lines.length) {
+        const nextLine = lines[i].trim();
+        if (!nextLine || nextLine.startsWith('#')) {
+          i++;
+          continue;
+        }
+        if (nextLine.startsWith('[')) {
+          break; // Start of new section
+        }
+        
+        const equalIndex = nextLine.indexOf('=');
+        if (equalIndex !== -1) {
+          const key = nextLine.substring(0, equalIndex).trim();
+          let value = nextLine.substring(equalIndex + 1).trim();
+          
+          // Remove quotes
+          if ((value.startsWith('"') && value.endsWith('"')) || 
+              (value.startsWith("'") && value.endsWith("'"))) {
+            value = value.slice(1, -1);
+          }
+          
+          tableEntry[key] = value;
+        }
+        i++;
+      }
+      
+      if (Object.keys(tableEntry).length > 0) {
+        result[arrayName].push(tableEntry);
+      }
+      continue;
+    }
     
     const equalIndex = trimmedLine.indexOf('=');
-    if (equalIndex === -1) continue;
+    if (equalIndex === -1) {
+      i++;
+      continue;
+    }
     
     const key = trimmedLine.substring(0, equalIndex).trim();
     let value = trimmedLine.substring(equalIndex + 1).trim();
@@ -52,6 +103,8 @@ function parseToml(tomlString: string): ClientMetadata {
       // Handle strings
       result[key] = value;
     }
+    
+    i++;
   }
   
   return result as ClientMetadata;
@@ -81,13 +134,16 @@ export async function loadClientData(): Promise<ClientData[]> {
   const { marked } = await import('marked');
   
   const contentDir = path.join(process.cwd(), 'content', 'clients');
-  const clientFiles = [
-    'near-por.md',
-    'sweetspot.md', 
-    'tlon.md',
-    'extend.md',
-    'supplyco.md'
-  ];
+  
+  // Read all .md files from the clients directory
+  let clientFiles: string[] = [];
+  try {
+    const files = fs.readdirSync(contentDir);
+    clientFiles = files.filter(file => file.endsWith('.md'));
+  } catch (error) {
+    console.error('Failed to read clients directory:', error);
+    return [];
+  }
   
   const clients: ClientData[] = [];
   
@@ -98,7 +154,11 @@ export async function loadClientData(): Promise<ClientData[]> {
       const { metadata, content: markdownContent } = parseMarkdownWithToml(content);
       
       // Convert markdown to HTML
-      const htmlContent = await marked(markdownContent);
+      let htmlContent = await marked(markdownContent);
+      
+      // Replace all instances of "Martian Engineering" with styled version
+      htmlContent = htmlContent.replace(/Martian Engineering/g, 
+        '<span style="color: #ff0000; text-transform: uppercase;">Martian Engineering</span>');
       
       clients.push({
         ...metadata,

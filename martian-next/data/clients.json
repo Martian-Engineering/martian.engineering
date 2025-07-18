@@ -1,0 +1,29 @@
+[
+  {
+    "name": "NEAR Foundation",
+    "logo": "/client-logos/near-foundation-white.svg",
+    "url": "https://near.foundation/"
+  },
+  {
+    "name": "Sweetspot",
+    "logo": "/client-logos/sweetspot.svg",
+    "url": "https://sweetspot.so"
+  },
+  {
+    "name": "Tlon",
+    "logo": "/client-logos/tlon.svg",
+    "url": "https://tlon.io",
+    "needsInvert": true
+  },
+  {
+    "name": "Extend",
+    "logo": "/client-logos/extend.svg",
+    "url": "https://www.extend.ai/",
+    "needsInvert": true
+  },
+  {
+    "name": "supplyco",
+    "logo": "/client-logos/supplyco-logo.svg",
+    "url": "https://www.supplyco.ai/"
+  }
+]
