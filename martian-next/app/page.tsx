@@ -6,20 +6,14 @@ import * as React from 'react';
 
 import DefaultLayout from '@/components/page/DefaultLayout';
 import DefaultActionBar from '@/components/page/DefaultActionBar';
-import Navigation from '@/components/Navigation';
 import Grid from '@/components/Grid';
 import Card from '@/components/Card';
 import CardDouble from '@/components/CardDouble';
 import Button from '@/components/Button';
 import Row from '@/components/Row';
 import Badge from '@/components/Badge';
-import Text from '@/components/Text';
-import DebugGrid from '@/components/DebugGrid';
 import MarsMatrixLoader from '@/components/MarsMatrixLoader';
-import BlockLoader from '@/components/BlockLoader';
 import Divider from '@/components/Divider';
-import HoverComponentTrigger from '@/components/HoverComponentTrigger';
-import ClientLogos from '@/components/ClientLogos';
 import ActionButton from '@/components/ActionButton';
 import ActionListItem from '@/components/ActionListItem';
 import SidebarLayout from '@/components/SidebarLayout';
@@ -34,8 +28,8 @@ export default function Page() {
   const clients = [
     { 
       id: 'near', 
-      name: 'NEAR FOUNDATION', 
-      project: "Proof of Response Protocol",
+      name: 'NEAR', 
+      project: "Proof of Response",
       brief: 'Data pipeline architecture & ML infrastructure', 
       logo: '/client-logos/near-foundation-white.svg',
       website: 'https://near.foundation/',
@@ -132,11 +126,16 @@ The system includes comprehensive real-time dashboards built with D3.js that pro
           </Grid>
 
           <Grid style={{ width: '512px'}}>
-            <ActionListItem icon={`⭢`} href="mailto:clients@martian.engineering">
+            <ActionListItem icon={`⭢`} href="/hire">
               Hire us
             </ActionListItem>
-            <ActionListItem icon={`⭢`} href="https://github.com/martian-engineering" target="_blank">
-              View our open source work
+            <ActionListItem icon={`⭢`} onClick={() => {
+              const element = document.getElementById('clients-section');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}>
+              Learn more about our work
             </ActionListItem>
           </Grid>
         </div>
@@ -180,10 +179,10 @@ The system includes comprehensive real-time dashboards built with D3.js that pro
       </div>
 
       {/* Clients Section with SidebarLayout */}
-      <div className={styles.gridContainer} style={{ marginTop: '6rem' }}>
-        <div className={styles.leftColumn}>
+      <div id="clients-section" className={styles.gridContainer} style={{ marginTop: '6rem' }}>
+        <div style={{ width: '140%'}}>
           <Grid>
-            <CardDouble title="CLIENTS" mode="left">
+            <CardDouble title="OUR WORK & CLIENTS" mode="left">
               <SidebarLayout
                 defaultSidebarWidth={25}
                 sidebar={
