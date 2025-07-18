@@ -58,7 +58,7 @@ export default async function Page() {
       </div>
 
       {/* Team Section - Owners */}
-      <div className={styles.gridContainer} style={{ marginTop: '6rem' }}>
+      <div className={styles.gridContainer} style={{ marginTop: '4rem' }}>
         <div className={styles.leftColumn}>
           <Grid>
             <Avatar src="/headshots/ted.jpg" style={{ width: '8ch', height: 'calc(var(--font-size) * var(--theme-line-height-base) * 4)' }}>
@@ -77,7 +77,11 @@ export default async function Page() {
               </Indent>
             </Avatar>
             <br />
-            <TeamActions />
+
+            <div style={{ marginTop: '1rem' }}>
+              <TeamActions />
+            </div>
+
           </Grid>
         </div>
         

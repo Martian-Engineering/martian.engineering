@@ -1,11 +1,11 @@
 'use client';
 
-import ActionButton from '@/components/ActionButton';
+import ActionListItem from '@/components/ActionListItem';
 
 export default function TeamActions() {
   return (
-    <ActionButton onClick={() => window.location.href = '/team'}>
-      → Meet the rest of the team
-    </ActionButton>
+    <ActionListItem icon={`⭢`} href="/team">
+      Meet the team
+    </ActionListItem>
   );
 }

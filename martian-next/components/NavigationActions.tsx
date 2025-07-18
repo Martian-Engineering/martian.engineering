@@ -5,7 +5,7 @@ import Grid from '@/components/Grid';
 
 export default function NavigationActions() {
   return (
-    <Grid style={{ width: '512px'}}>
+    <Grid>
       <ActionListItem icon={`⭢`} href="/hire">
         Hire us
       </ActionListItem>
@@ -15,7 +15,7 @@ export default function NavigationActions() {
           element.scrollIntoView({ behavior: 'smooth' });
         }
       }}>
-        Learn more about our work
+        Learn about our work
       </ActionListItem>
     </Grid>
   );
