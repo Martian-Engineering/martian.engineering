@@ -3,6 +3,7 @@
 import styles from '@/components/page/DefaultActionBar.module.scss';
 
 import * as React from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 
 import ActionBar from '@/components/ActionBar';
 import { useHotkeys } from '@/hooks/useHotkeys';
@@ -17,40 +18,47 @@ interface DefaultActionBarProps {
 }
 
 const DefaultActionBar: React.FC<DefaultActionBarProps> = ({ items = [] }) => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const router = useRouter();
+  const pathname = usePathname();
 
-  const handleTeam = () => scrollToSection('team-section');
-  const handleBlog = () => window.open('https://blog.martian.engineering', '_blank');
-  const handleContact = () => window.location.href = 'mailto:clients@martian.engineering';
+  const handleHome = () => router.push('/');
+  const handleTeam = () => router.push('/team');
+  const handleBlog = () => router.push('/blog');
+  const handleHire = () => router.push('/hire');
 
   // Add keyboard shortcuts
-  useHotkeys('ctrl+1', handleTeam);
-  useHotkeys('ctrl+2', handleBlog);
-  useHotkeys('ctrl+3', handleContact);
+  useHotkeys('ctrl+i', handleHome);
+  useHotkeys('ctrl+t', handleTeam);
+  useHotkeys('ctrl+b', handleBlog);
+  useHotkeys('ctrl+h', handleHire);
 
   return (
     <div className={styles.root}>
       <ActionBar
         items={[
           {
+            hotkey: '⌃+I',
+            body: <span style={{ color: pathname === '/' ? 'white' : 'red' }}>●</span>,
+            onClick: handleHome,
+            selected: pathname === '/',
+          },
+          {
             hotkey: '⌃+T',
             body: 'TEAM',
             onClick: handleTeam,
+            selected: pathname === '/team',
           },
           {
             hotkey: '⌃+B',
             body: 'BLOG',
             onClick: handleBlog,
+            selected: pathname === '/blog',
           },
           {
-            hotkey: '⌃+O',
-            body: 'CONTACT',
-            onClick: handleContact,
+            hotkey: '⌃+H',
+            body: 'HIRE',
+            onClick: handleHire,
+            selected: pathname === '/hire',
           },
           ...items,
         ]}
