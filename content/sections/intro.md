@@ -1,0 +1,1 @@
+We are a team of senior engineers who solve complex technical problems across diverse domains. Our expertise spans data engineering, network protocols, distributed systems, embedded systems, and security. We combine deep technical knowledge with sophisticated AI development workflows to deliver robust, production-ready solutions with exceptional thoroughness and quality.

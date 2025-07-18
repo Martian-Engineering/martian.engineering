@@ -1,0 +1,14 @@
+{
+  "name": "martian-engineering-site",
+  "version": "1.0.0",
+  "description": "Static site for Martian Engineering",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node build.js && python3 -m http.server 8000",
+    "serve": "python3 -m http.server 8000"
+  },
+  "dependencies": {
+    "marked": "^9.1.2",
+    "yaml": "^2.3.4"
+  }
+}

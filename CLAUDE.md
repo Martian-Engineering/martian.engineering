@@ -23,14 +23,37 @@ This is a static website for Martian Engineering, a software consulting firm. Th
 
 ## Development Commands
 
-This is a static website with no build process. To develop locally:
+This site uses a Node.js-based build system that generates HTML from markdown files:
 
 ```bash
-# Serve locally (any simple HTTP server)
-python3 -m http.server 8000
-# or
-npx serve .
+# Build the site from markdown files
+npm run build
+
+# Build and serve locally for development
+npm run dev
+
+# Just serve the built site
+npm run serve
 ```
+
+## Content Management
+
+Content is stored in separate markdown files in the `content/` directory:
+
+- `content/sections/` - Main page sections (hero, intro, what-we-do, hiring)
+- `content/principals/` - Company principals with frontmatter for name
+- `content/team/` - Team members with frontmatter for name, specialties, and urbit_id flag
+
+Team member files support frontmatter:
+```yaml
+---
+name: "Person Name"
+specialties: "area1, area2, area3"
+urbit_id: true  # for Urbit ID display
+---
+```
+
+The build script (`build.js`) processes these files and generates the final `index.html`.
 
 ## Deployment
 
