@@ -23,12 +23,14 @@ const DefaultActionBar: React.FC<DefaultActionBarProps> = ({ items = [] }) => {
 
   const handleHome = () => router.push('/');
   const handleTeam = () => router.push('/team');
+  const handleWork = () => router.push('/work');
   const handleBlog = () => router.push('/blog');
   const handleHire = () => router.push('/hire');
 
   // Add keyboard shortcuts
   useHotkeys('ctrl+i', handleHome);
   useHotkeys('ctrl+t', handleTeam);
+  useHotkeys('ctrl+w', handleWork);
   useHotkeys('ctrl+b', handleBlog);
   useHotkeys('ctrl+h', handleHire);
 
@@ -47,6 +49,12 @@ const DefaultActionBar: React.FC<DefaultActionBarProps> = ({ items = [] }) => {
             body: 'TEAM',
             onClick: handleTeam,
             selected: pathname === '/team',
+          },
+          {
+            hotkey: '⌃+W',
+            body: 'WORK',
+            onClick: handleWork,
+            selected: pathname === '/work',
           },
           {
             hotkey: '⌃+B',
