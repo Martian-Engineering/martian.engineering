@@ -9,12 +9,7 @@ export default function NavigationActions() {
       <ActionListItem icon={`⭢`} href="/hire">
         Hire us
       </ActionListItem>
-      <ActionListItem icon={`⭢`} onClick={() => {
-        const element = document.getElementById('clients-section');
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }}>
+      <ActionListItem icon={`⭢`} href="/work">
         Learn about our work
       </ActionListItem>
     </Grid>
