@@ -1,4 +1,3 @@
-import '@/global.scss';
 import styles from './page.module.scss';
 
 import DefaultLayout from '@/components/page/DefaultLayout';
