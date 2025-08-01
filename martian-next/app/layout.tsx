@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import '@/global.scss';
 
 export const metadata: Metadata = {
   title: "Martian Engineering - Hard Problems, Modern Solutions",

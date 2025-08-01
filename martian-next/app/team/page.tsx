@@ -1,6 +1,5 @@
 'use client';
 
-import '@/global.scss';
 import styles from '../page.module.scss';
 import * as React from 'react';
 
