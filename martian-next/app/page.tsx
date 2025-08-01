@@ -4,7 +4,6 @@ import DefaultLayout from '@/components/page/DefaultLayout';
 import DefaultActionBar from '@/components/page/DefaultActionBar';
 import Text from '@/components/Text';
 import Grid from '@/components/Grid';
-import Button from '@/components/Button';
 import Row from '@/components/Row';
 import Badge from '@/components/Badge';
 import MarsMatrixLoader from '@/components/MarsMatrixLoader';
@@ -34,7 +33,7 @@ export default async function Page() {
         <div className={styles.leftColumn}>
           <Grid>
             <Row>
-              <span style={{ color: 'red' }}>MARTIAN ENGINEERING</span> <Badge>Hard problems, modern solutions</Badge>
+              <span style={{ color: 'var(--theme-text)' }}>MARTIAN ENGINEERING</span> <Badge>Hard problems, modern solutions</Badge>
             </Row>
             <br />
             <Row>
@@ -149,11 +148,6 @@ export default async function Page() {
       </div>
 
       <Grid style={{ marginTop: '4rem' }}>
-        <Row>
-          <a href="https://github.com/martian-engineering" target="_blank">
-            <Button theme="SECONDARY">GitHub</Button>
-          </a>
-        </Row>
         <Row>
           © 2025 Martian Engineering, LLC
         </Row>

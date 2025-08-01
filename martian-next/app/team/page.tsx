@@ -26,7 +26,7 @@ export default function TeamPage() {
         <div className={styles.leftColumn}>
           <Grid>
             <Row>
-              <span style={{ color: 'red' }}>TEAM</span>
+              <span style={{ color: 'var(--theme-text)' }}>TEAM</span>
             </Row>
             <br />
             <Row>
@@ -45,7 +45,7 @@ export default function TeamPage() {
       <div className={styles.gridContainer} style={{ marginTop: '4rem' }}>
         <div className={styles.leftColumn}>
           <Grid>
-            <h2 style={{ color: 'red', marginBottom: '2rem' }}>OWNERS</h2>
+            <h2 style={{ color: 'var(--theme-text)', marginBottom: '2rem' }}>OWNERS</h2>
             
             <Avatar src="/headshots/ted.jpg" style={{ width: '8ch', height: 'calc(var(--font-size) * var(--theme-line-height-base) * 4)' }}>
               <Indent>
@@ -73,7 +73,7 @@ export default function TeamPage() {
       <div className={styles.gridContainer} style={{ marginTop: '4rem' }}>
         <div className={styles.leftColumn}>
           <Grid>
-            <h2 style={{ color: 'red', marginBottom: '2rem' }}>TEAM MEMBERS</h2>
+            <h2 style={{ color: 'var(--theme-text)', marginBottom: '2rem' }}>TEAM MEMBERS</h2>
             
             <Card title="Luke Champine" mode="left">
               <Badge>network protocols</Badge> <Badge>cryptography</Badge>
