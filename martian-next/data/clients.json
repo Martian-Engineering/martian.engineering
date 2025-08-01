@@ -13,7 +13,8 @@
     "name": "Tlon",
     "logo": "/client-logos/tlon.svg",
     "url": "https://tlon.io",
-    "needsInvert": true
+    "needsInvert": true,
+    "scale": 0.8
   },
   {
     "name": "Extend",

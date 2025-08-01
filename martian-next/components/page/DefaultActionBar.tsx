@@ -26,6 +26,7 @@ const DefaultActionBar: React.FC<DefaultActionBarProps> = ({ items = [] }) => {
   const handleWork = () => router.push('/work');
   const handleBlog = () => router.push('/blog');
   const handleHire = () => router.push('/hire');
+  const handleGitHub = () => window.open('https://github.com/martian-engineering', '_blank');
 
   // Add keyboard shortcuts
   useHotkeys('ctrl+i', handleHome);
@@ -33,6 +34,7 @@ const DefaultActionBar: React.FC<DefaultActionBarProps> = ({ items = [] }) => {
   useHotkeys('ctrl+w', handleWork);
   useHotkeys('ctrl+b', handleBlog);
   useHotkeys('ctrl+h', handleHire);
+  useHotkeys('ctrl+g', handleGitHub);
 
   return (
     <div className={styles.root}>
@@ -40,7 +42,7 @@ const DefaultActionBar: React.FC<DefaultActionBarProps> = ({ items = [] }) => {
         items={[
           {
             hotkey: '⌃+I',
-            body: <span style={{ color: pathname === '/' ? 'white' : 'red' }}>●</span>,
+            body: <span style={{ color: pathname === '/' ? 'var(--theme-button-text)' : 'var(--theme-text)' }}>●</span>,
             onClick: handleHome,
             selected: pathname === '/',
           },
@@ -67,6 +69,12 @@ const DefaultActionBar: React.FC<DefaultActionBarProps> = ({ items = [] }) => {
             body: 'HIRE',
             onClick: handleHire,
             selected: pathname === '/hire',
+          },
+          {
+            hotkey: '⌃+G',
+            body: 'GITHUB',
+            onClick: handleGitHub,
+            selected: false,
           },
           ...items,
         ]}
