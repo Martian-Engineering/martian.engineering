@@ -159,21 +159,55 @@ export default async function Page() {
       <div className={styles.gridContainer} style={{ marginTop: "2rem" }}>
         <div className={styles.leftColumn}>
           <Grid>
-            <Text>Why work with Martian Engineering?</Text>
-            <Text>
-              Our breadth of experience allows us to understand any and plug in
-              to any codebase and learn any technology stack, no matter how
-              large or complex.
-            </Text>
-            <Text>
-              As experienced startup founders, we're used to assuming a high
-              degree of ownership and autonomy. You tell us what you need and
-              we'll figure it out.
-            </Text>
-            <Text>
-              We're ahead of the curve in AI development best practices,
-              enabling us to move fast without compromising quality.
-            </Text>
+            <Row>
+              <span className={styles.whyAccent}>WHY MARTIAN</span>
+            </Row>
+            <br />
+            <Row>
+              <Text>
+                <strong>Why work with Martian Engineering?</strong>{" "}
+                <span className={styles.whyAccent}>
+                  We drop into large existing codebases with ease
+                </span>{" "}
+                and ship the{" "}
+                <span className={styles.whyAccent}>production systems</span>{" "}
+                your team is counting on.
+              </Text>
+            </Row>
+            <Row style={{ marginTop: "1rem" }}>
+              <Text>
+                Our breadth of experience lets us{" "}
+                <span className={styles.whyAccent}>
+                  learn unfamiliar stacks quickly
+                </span>{" "}
+                and contribute to large, complex codebases without slowing your
+                team down.
+              </Text>
+            </Row>
+            <Row style={{ marginTop: "1rem" }}>
+              <Text>
+                As founders and former CTOs, we{" "}
+                <span className={styles.whyAccent}>
+                  take ownership of outcomes
+                </span>
+                —you outline the objective and we drive it to completion.
+              </Text>
+            </Row>
+            <Row style={{ marginTop: "1rem" }}>
+              <Text>
+                We pair distributed-systems instincts with AI-native workflows
+                to{" "}
+                <span className={styles.whyAccent}>
+                  move fast while preserving the quality
+                </span>{" "}
+                required for mission-critical software.
+              </Text>
+            </Row>
+            <Row style={{ marginTop: "1.5rem" }}>
+              <ActionListItem icon={`⭢`} href="/hire">
+                Hire us
+              </ActionListItem>
+            </Row>
           </Grid>
         </div>
         <div className={styles.rightColumn}>{/* Empty right column */}</div>
