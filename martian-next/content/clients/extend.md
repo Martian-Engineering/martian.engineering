@@ -5,7 +5,7 @@ full_name = "EXTEND"
 project = "PgBouncer implementation"
 brief = "Stabilizing Postgres under surging API traffic"
 logo = "/client-logos/extend.svg"
-website = "https://extend.app/"
+website = "https://extend.ai/"
 duration = "6 weeks"
 technologies = ["PgBouncer", "PostgreSQL", "AWS RDS", "AWS ECS", "Terraform", "Datadog"]
 +++

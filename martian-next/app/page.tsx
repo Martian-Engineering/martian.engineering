@@ -14,6 +14,8 @@ import TeamActions from '@/components/TeamActions';
 import ClientLogos from '@/components/ClientLogos';
 import ActionListItem from '@/components/ActionListItem';
 import Card from '@/components/Card';
+import CardDouble from '@/components/CardDouble';
+import Block from '@/components/Block';
 import ListItem from '@/components/ListItem';
 
 // export const dynamic = 'force-static';
@@ -106,6 +108,37 @@ export default async function Page() {
                 </ActionListItem>
               </div>
             </Card>
+          </Grid>
+        </div>
+        <div className={styles.rightColumn}>
+          {/* Empty right column */}
+        </div>
+      </div>
+
+      {/* Testimonials Section */}
+      <div className={styles.gridContainer} style={{ marginTop: '2rem' }}>
+        <div className={styles.leftColumn}>
+          <Grid>
+            <CardDouble title="TESTIMONIALS" mode="left">
+              <div className={styles.testimonialShell}>
+                <Avatar
+                  src="/headshots/andrew-arkhipov.jpg"
+                  style={{ width: '12ch', height: '12ch' }}
+                />
+                <div className={styles.testimonialCopy}>
+                  <div className={styles.testimonialMeta}>
+                    <Block className={styles.testimonialBlock} aria-hidden="true" />
+                    <div>
+                      <div className={styles.testimonialName}>Andrew Arkhipov</div>
+                      <div className={styles.testimonialRole}>Cofounder · Sweetspot</div>
+                    </div>
+                  </div>
+                  <Text className={styles.testimonialQuote}>
+                    "Josh Lehman and his team have been incredible for us, probably the best you could ever get when it comes to hiring engineering contractors. We're happy clients of theirs and will continue to be for any contracting work we need done."
+                  </Text>
+                </div>
+              </div>
+            </CardDouble>
           </Grid>
         </div>
         <div className={styles.rightColumn}>
