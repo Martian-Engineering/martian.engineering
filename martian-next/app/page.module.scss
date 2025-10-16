@@ -24,3 +24,51 @@
     margin-top: 2rem;
   }
 }
+
+.testimonialShell {
+  display: grid;
+  grid-template-columns: minmax(8ch, 12ch) 1fr;
+  gap: 2rem;
+  align-items: center;
+
+  @media (max-width: 1064px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.testimonialCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.testimonialMeta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  letter-spacing: 0.1ch;
+}
+
+.testimonialBlock {
+  align-self: stretch;
+  width: 0.75ch;
+}
+
+.testimonialQuote {
+  margin: 0;
+  font-style: italic;
+  border-left: 2px solid var(--theme-text);
+  padding-left: 1.5ch;
+}
+
+.testimonialName {
+  font-weight: 600;
+  font-size: calc(var(--font-size) * 1.05);
+}
+
+.testimonialRole {
+  opacity: 0.75;
+  font-size: calc(var(--font-size) * 0.85);
+  text-transform: uppercase;
+}
