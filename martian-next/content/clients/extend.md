@@ -1,17 +1,15 @@
 +++
-sort_index = 4
+sort_index = 40
 short_name = "EXTEND"
 full_name = "EXTEND"
-project = "Database Scaling"
-brief = "AI development workflow optimization"
+project = "PgBouncer implementation"
+brief = "Stabilizing Postgres under surging API traffic"
 logo = "/client-logos/extend.svg"
-website = "https://www.extend.ai/"
-duration = "4 months"
-technologies = ["Python", "TypeScript", "LangChain", "OpenAI API", "Anthropic API", "Vector Databases", "GitHub Actions", "Docker", "Terraform", "AWS"]
+website = "https://extend.app/"
+duration = "6 weeks"
+technologies = ["PgBouncer", "PostgreSQL", "AWS RDS", "AWS ECS", "Terraform", "Datadog"]
 +++
 
-Extend brought us in to revolutionize their engineering team's development workflows through strategic AI integration. We conducted comprehensive assessments of their existing processes and identified key areas where AI could significantly improve productivity without compromising code quality or security.
+Extend called us in after back-to-back May 2025 incidents where customer-facing API calls jumped from seconds to minutes even though their Postgres database still had headroom. We traced the slowdowns to thousands of application connections piling onto the same AWS RDS instance whenever traffic spiked, creating more work for the database than the requests themselves.
 
-We implemented custom AI-powered code review systems that provide intelligent feedback on pull requests, catching potential bugs and suggesting optimizations based on the team's coding standards. Our solution includes context-aware code generation tools that understand the project's architecture and automatically maintain consistency with existing patterns.
-
-Beyond tooling, we developed comprehensive training programs that helped engineers at all levels effectively leverage AI assistants while maintaining critical thinking and code ownership. We established best practices for prompt engineering, security guidelines for handling sensitive data, and metrics for measuring AI tool effectiveness. The team saw a 40% improvement in development velocity while maintaining high code quality standards.
+We designed and rolled out PgBouncer so every service talks through a shared, lightweight pool instead of opening its own Postgres sessions. That included readiness reviews with the team, staging rollouts and tuning, and new Datadog dashboards that make it obvious when connection pressure starts to climb.
