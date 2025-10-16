@@ -1,29 +1,19 @@
 +++
-sort_index = 3
+sort_index = 20
 short_name = "TLON"
 full_name = "TLON"
-project = "Zenith Blockchain"
-brief = "Distributed systems & network protocols"
+project = "Zenith Urbit Integration & Janus"
+brief = "Connecting Urbit software to the Zenith blockchain"
 logo = "/client-logos/tlon.svg"
 website = "https://tlon.io"
-duration = "12 months"
-technologies = ["Rust", "Go", "WebRTC", "libp2p", "QUIC", "Protocol Buffers", "PostgreSQL", "Redis", "Kubernetes", "Prometheus"]
-
-[[resources]]
-title = "Zenith Network Architecture Overview"
-url = "https://tlon.io/docs/zenith-architecture"
-
-[[resources]]
-title = "Peer-to-Peer Protocol Specification"
-url = "https://github.com/tloncorp/zenith-protocol"
-
-[[resources]]
-title = "Performance Benchmarks Report"
-url = "https://tlon.io/blog/zenith-benchmarks"
+duration = "3 months"
+technologies = ["Hoon", "Urbit", "Go", "Cosmos SDK", "HTTP"]
 +++
 
-Tlon engaged us to architect and implement the core distributed systems infrastructure for their next-generation decentralized communication platform. This involved designing novel network protocols that could operate efficiently in peer-to-peer environments while maintaining the user experience of centralized systems.
+Tlon asked us to make Zenith, the Ethereum layer-2 that manages Urbit identities, feel native inside Urbit. Working alongside Laconic Network, we produced an installable Urbit software bundle (a "desk" in Urbit terminology) that lets ships configure Zenith connections, check balances, send transactions, and subscribe to updates from Zenith's on-chain data feed without leaving the Urbit environment.
 
-We developed a custom gossip protocol for message propagation that achieves eventual consistency across globally distributed nodes with minimal bandwidth overhead. The system uses advanced NAT traversal techniques and WebRTC for direct peer connections, falling back to relay nodes when necessary. Our implementation includes sophisticated congestion control and quality-of-service mechanisms.
+We added a verification service so other Urbit apps can request data from remote ships—a pattern the community calls "remote scry"—and automatically compare the response with the authenticated version stored on Zenith before handing it back to the requester.
 
-The architecture supports millions of concurrent users across thousands of nodes, with automatic scaling and self-healing capabilities. We implemented comprehensive testing infrastructure including network simulation environments that model real-world conditions like packet loss and variable latency. The platform now serves as the foundation for Tlon's entire communication ecosystem.
+To move activity from Urbit into the chain, we engineered Janus: a Go service that each validating galaxy and star runs as a reliable relay. Janus accepts transaction and data submissions from its sponsored ships, bundles and signs them, and forwards them up the hierarchy until they reach a Zenith validator.
+
+We finished the engagement with documentation, handoff sessions, and end-to-end testing that proved Urbit ships can push updates through Janus into Zenith even when network links drop or faulty payloads show up.

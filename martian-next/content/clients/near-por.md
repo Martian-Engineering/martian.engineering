@@ -1,5 +1,5 @@
 +++
-sort_index = 1
+sort_index = 0
 short_name = "NEAR"
 full_name = "NEAR FOUNDATION"
 project = "Proof of Response Protocol"
