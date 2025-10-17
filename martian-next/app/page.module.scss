@@ -20,7 +20,7 @@
   align-items: center;
   gap: 2rem;
   margin-bottom: 2rem;
-  
+
   @media (max-width: 1064px) {
     padding-top: 0;
     margin-top: 2rem;
@@ -31,6 +31,42 @@
 .rightColumnStretch {
   align-items: stretch;
   width: 100%;
+}
+
+.socialLinks {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.socialSeparator {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0.75rem;
+  color: var(--theme-text);
+  opacity: 0.5;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--theme-text);
+  opacity: 0.85;
+  text-decoration: none;
+  letter-spacing: 0.05ch;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+    text-decoration: underline;
+  }
+}
+
+.socialIcon {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .testimonialShell {

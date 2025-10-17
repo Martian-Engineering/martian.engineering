@@ -13,6 +13,7 @@ import Text from "@/components/Text";
 import Button from "@/components/Button";
 import Badge from "@/components/Badge";
 import ActionListItem from "@/components/ActionListItem";
+import Footer from "@/components/Footer";
 
 export default function HirePage() {
   return (
@@ -183,12 +184,11 @@ export default function HirePage() {
               we can help.
               <br />
               <br />
+              <br />
+              <br />
               <a href="mailto:clients@martian.engineering">
                 <Button>Contact Us</Button>
               </a>
-              <br />
-              <br />
-              <span style={{ opacity: 0.7 }}>clients@martian.engineering</span>
             </Card>
           </Grid>
         </div>
@@ -208,14 +208,7 @@ export default function HirePage() {
         </div>
       </div>
 
-      <div className={styles.gridContainer} style={{ marginTop: "4rem" }}>
-        <div className={styles.leftColumn}>
-          <Grid>
-            <Row>© 2025 Martian Engineering, LLC</Row>
-          </Grid>
-        </div>
-        <div className={styles.rightColumn}>{/* Empty right column */}</div>
-      </div>
+      <Footer />
     </DefaultLayout>
   );
 }

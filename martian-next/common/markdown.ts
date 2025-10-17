@@ -157,8 +157,10 @@ export async function loadClientData(): Promise<ClientData[]> {
       let htmlContent = await marked(markdownContent);
       
       // Replace all instances of "Martian Engineering" with styled version
-      htmlContent = htmlContent.replace(/Martian Engineering/g, 
-        '<span style="color: #ff0000; text-transform: uppercase;">Martian Engineering</span>');
+      htmlContent = htmlContent.replace(
+        /Martian Engineering/g,
+        '<span class="martian-brand-accent">Martian Engineering</span>',
+      );
       
       clients.push({
         ...metadata,

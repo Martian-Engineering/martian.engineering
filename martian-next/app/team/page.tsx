@@ -11,6 +11,8 @@ import Badge from "@/components/Badge";
 import Row from "@/components/Row";
 import Avatar from "@/components/Avatar";
 import Indent from "@/components/Indent";
+import Footer from "@/components/Footer";
+import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/SocialIcons";
 
 export default function TeamPage() {
   return (
@@ -67,6 +69,47 @@ export default function TeamPage() {
                 engineering, full-stack web development, and embedded systems.
                 He was a YC founder in 2011, and holds a degree in physics from
                 MIT.
+                <div
+                  className={styles.socialLinks}
+                  style={{ marginTop: "0.75rem" }}
+                >
+                  <a
+                    className={styles.socialLink}
+                    href="https://github.com/belisarius222"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Ted Blackman on GitHub"
+                    title="Ted Blackman on GitHub"
+                  >
+                    <GitHubIcon className={styles.socialIcon} />
+                  </a>
+                  <span aria-hidden="true" className={styles.socialSeparator}>
+                    •
+                  </span>
+                  <a
+                    className={styles.socialLink}
+                    href="https://x.com/rovnys"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Ted Blackman on X"
+                    title="Ted Blackman on X"
+                  >
+                    <XIcon className={styles.socialIcon} />
+                  </a>
+                  <span aria-hidden="true" className={styles.socialSeparator}>
+                    •
+                  </span>
+                  <a
+                    className={styles.socialLink}
+                    href="https://www.linkedin.com/in/ted-blackman-8628164/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Ted Blackman on LinkedIn"
+                    title="Ted Blackman on LinkedIn"
+                  >
+                    <LinkedInIcon className={styles.socialIcon} />
+                  </a>
+                </div>
               </Indent>
             </Avatar>
             <br />
@@ -87,6 +130,47 @@ export default function TeamPage() {
                 worked closely with Theodore on Urbit&apos;s most ambitious core
                 development projects. Previously Josh was the CTO and cofounder
                 of Starcity (YC S16, acquired by Common in 2021).
+                <div
+                  className={styles.socialLinks}
+                  style={{ marginTop: "0.75rem" }}
+                >
+                  <a
+                    className={styles.socialLink}
+                    href="https://github.com/jalehman"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Josh Lehman on GitHub"
+                    title="Josh Lehman on GitHub"
+                  >
+                    <GitHubIcon className={styles.socialIcon} />
+                  </a>
+                  <span aria-hidden="true" className={styles.socialSeparator}>
+                    •
+                  </span>
+                  <a
+                    className={styles.socialLink}
+                    href="https://x.com/jlehman_"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Josh Lehman on X"
+                    title="Josh Lehman on X"
+                  >
+                    <XIcon className={styles.socialIcon} />
+                  </a>
+                  <span aria-hidden="true" className={styles.socialSeparator}>
+                    •
+                  </span>
+                  <a
+                    className={styles.socialLink}
+                    href="https://www.linkedin.com/in/jalehman1/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Josh Lehman on LinkedIn"
+                    title="Josh Lehman on LinkedIn"
+                  >
+                    <LinkedInIcon className={styles.socialIcon} />
+                  </a>
+                </div>
               </Indent>
             </Avatar>
           </Grid>
@@ -197,14 +281,7 @@ export default function TeamPage() {
         </div>
       </div>
 
-      <div className={styles.gridContainer} style={{ marginTop: "4rem" }}>
-        <div className={styles.leftColumn}>
-          <Grid>
-            <Row>© 2025 Martian Engineering, LLC</Row>
-          </Grid>
-        </div>
-        <div className={`${styles.rightColumn} ${styles.rightColumnStretch}`}>{/* Empty right column */}</div>
-      </div>
+      <Footer />
     </DefaultLayout>
   );
 }

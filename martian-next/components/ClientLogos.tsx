@@ -1,7 +1,7 @@
-import styles from '@/components/ClientLogos.module.scss';
-import * as React from 'react';
-import Image from 'next/image';
-import clientsData from '@/data/clients.json';
+import styles from "@/components/ClientLogos.module.scss";
+import * as React from "react";
+import Image from "next/image";
+import clientsData from "@/data/clients.json";
 
 interface Client {
   name: string;
@@ -28,7 +28,11 @@ const ClientLogos: React.FC = () => {
           >
             <div
               className={styles.logoWrapper}
-              style={client.scale ? { transform: `scale(${client.scale})` } : undefined}
+              style={
+                client.scale
+                  ? { transform: `scale(${client.scale})` }
+                  : undefined
+              }
             >
               <Image
                 src={client.logo}
