@@ -84,15 +84,44 @@ export default async function Page() {
       <div className={styles.gridContainer} style={{ marginTop: "4rem" }}>
         <div className={styles.leftColumn}>
           <Grid>
-            <Card title="OUR CLIENTS" mode="left">
+            <CardDouble title="OUR CLIENTS" mode="left">
               <ClientLogos />
               <div style={{ marginTop: "2rem" }}>
-                <Text>
+                <Card title="TESTIMONIALS" mode="left">
+                  <div className={styles.testimonialShell}>
+                    <Avatar
+                      src="/headshots/andrew-arkhipov.jpg"
+                      style={{ width: "12ch", height: "12ch" }}
+                    />
+                    <div className={styles.testimonialCopy}>
+                      <div className={styles.testimonialMeta}>
+                        <Block
+                          className={styles.testimonialBlock}
+                          aria-hidden="true"
+                        />
+                        <div>
+                          <div className={styles.testimonialName}>
+                            Andrew Arkhipov
+                          </div>
+                          <div className={styles.testimonialRole}>
+                            Cofounder · Sweetspot
+                          </div>
+                        </div>
+                      </div>
+                      <Text className={styles.testimonialQuote}>
+                        &ldquo;Josh Lehman and his team have been incredible for
+                        us, probably the best you could ever get when it comes
+                        to hiring engineering contractors. We&apos;re happy
+                        clients of theirs and will continue to be for any
+                        contracting work we need done.&rdquo;
+                      </Text>
+                    </div>
+                  </div>
+                </Card>
+
+                <Text style={{ marginTop: "2rem" }}>
                   We work with early-stage startups, established organizations
-                  and everything in between. Our recent projects include data
-                  pipeline engineering, network protocol design and
-                  implementation, custom MCP clients and servers, and
-                  infrastructure development.
+                  and everything in between.{" "}
                 </Text>
                 <ActionListItem
                   icon={`⭢`}
@@ -102,10 +131,14 @@ export default async function Page() {
                   Learn more about our work
                 </ActionListItem>
               </div>
-            </Card>
+            </CardDouble>
           </Grid>
         </div>
-        <div className={styles.rightColumn}>
+        <div className={styles.rightColumn}></div>
+      </div>
+
+      {/*<div className={styles.gridContainer} style={{ marginTop: "2rem" }}>
+        <div className={styles.leftColumn}>
           <Grid>
             <CardDouble title="TESTIMONIALS" mode="left">
               <div className={styles.testimonialShell}>
@@ -140,21 +173,8 @@ export default async function Page() {
             </CardDouble>
           </Grid>
         </div>
-      </div>
-
-      {/* About section */}
-
-      {/* <div className={styles.gridContainer} style={{ marginTop: '4rem' }}>
-        <div className={styles.leftColumn}>
-          <Grid>
-            <Text>
-                Our expertise spans data engineering, network protocols, infrastructure, distributed systems, embedded systems, and security.
-                We combine deep technical knowledge with sophisticated AI development workflows to deliver robust,
-                production-ready solutions with exceptional thoroughness and quality.
-            </Text>
-          </Grid>
-        </div>
-      </div> */}
+        <div className={styles.rightColumn}></div>
+      </div>*/}
 
       {/* Why work with Martian Engineering */}
       <div className={styles.gridContainer} style={{ marginTop: "2rem" }}>
@@ -216,7 +236,7 @@ export default async function Page() {
       <div className={styles.gridContainer} style={{ marginTop: "2rem" }}>
         <div className={styles.leftColumn}>
           <Grid>
-            <Card title="TEAM" mode="left">
+            <CardDouble title="TEAM" mode="left">
               <Avatar
                 src="/headshots/ted.jpg"
                 style={{
@@ -263,7 +283,7 @@ export default async function Page() {
               <div style={{ marginTop: "1rem" }}>
                 <TeamActions />
               </div>
-            </Card>
+            </CardDouble>
           </Grid>
         </div>
 

@@ -15,14 +15,22 @@
 
 .rightColumn {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
   margin-bottom: 2rem;
   
   @media (max-width: 1064px) {
     padding-top: 0;
     margin-top: 2rem;
+    gap: 1.5rem;
   }
+}
+
+.rightColumnStretch {
+  align-items: stretch;
+  width: 100%;
 }
 
 .testimonialShell {

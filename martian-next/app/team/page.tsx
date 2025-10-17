@@ -26,7 +26,7 @@ export default function TeamPage() {
         <div className={styles.leftColumn}>
           <Grid>
             <Row>
-              <span style={{ color: "var(--theme-text)" }}>TEAM</span>
+              <span className={styles.whyAccent}>TEAM</span>
             </Row>
             <br />
             <Row>
@@ -44,9 +44,10 @@ export default function TeamPage() {
       <div className={styles.gridContainer} style={{ marginTop: "4rem" }}>
         <div className={styles.leftColumn}>
           <Grid>
-            <h2 style={{ color: "var(--theme-text)", marginBottom: "2rem" }}>
-              OWNERS
-            </h2>
+            <Row>
+              <span className={styles.whyAccent}>OWNERS</span>
+            </Row>
+            <br />
 
             <Avatar
               src="/headshots/ted.jpg"
@@ -97,9 +98,10 @@ export default function TeamPage() {
       <div className={styles.gridContainer} style={{ marginTop: "4rem" }}>
         <div className={styles.leftColumn}>
           <Grid>
-            <h2 style={{ color: "var(--theme-text)", marginBottom: "2rem" }}>
-              TEAM MEMBERS
-            </h2>
+            <Row>
+              <span className={styles.whyAccent}>TEAM MEMBERS</span>
+            </Row>
+            <br />
 
             <Card title="Luke Champine" mode="left">
               <Badge>network protocols</Badge> <Badge>cryptography</Badge>
@@ -114,33 +116,6 @@ export default function TeamPage() {
               research, and more. He treats programming as an end in itself, and
               outside of work he enjoys tinkering with a new language designed
               for competitive programming.
-            </Card>
-            <br />
-            <Card title="Jacob Lyles" mode="left">
-              <Badge>cryptography</Badge> <Badge>machine learning</Badge>{" "}
-              <Badge>product engineering</Badge>
-              <br />
-              <br />
-              Jacob is a versatile product engineer with over a decade of
-              experience building secure systems and developer teams. He's an
-              original author of the Glacier Protocol, a widely adopted standard
-              for Bitcoin cold storage, and previously developed Bitcoin
-              inheritance solutions and wealth security tools at Casa. He
-              specializes in bringing new products to market, including the
-              first mobile app at Coursera. He has degrees in Computer Science
-              specializing in Machine Learning (UCSD) and Mathematics &
-              Economics (Wake Forest).
-            </Card>
-            <br />
-            <Card title="Brian Bulag" mode="left">
-              <Badge>machine learning</Badge> <Badge>data science</Badge>
-              <br />
-              <br />
-              Brian&apos;s experience includes computational biology research
-              and machine learning, particularly with kernel methods on social
-              science data within The Institute for Quantitative Social Science
-              at Harvard. He holds degrees in Biology and Philosophy from Stony
-              Brook University, and is an avid Category Theory enthusiast.
             </Card>
             <br />
             <Card title="Rikard Hjort" mode="left">
@@ -159,27 +134,15 @@ export default function TeamPage() {
               Engineering, Sweden.
             </Card>
             <br />
-            <Card title="Phil Galebach" mode="left">
-              <Badge>data engineering</Badge>{" "}
-              <Badge>full-stack development</Badge>{" "}
-              <Badge>AI optimization</Badge>
+            <Card title="Brian Bulag" mode="left">
+              <Badge>machine learning</Badge> <Badge>data science</Badge>
               <br />
               <br />
-              Phil is a data-focused technologist with a career spanning
-              statistician, senior data engineer, business intelligence manager,
-              digital health COO, and AI optimization specialist. Phil has a
-              particular passion for entrepreneurial work, founding his first
-              business while at Harvard.
-              <br />
-              <br />
-              Since diving headfirst into LLMs, he has worked extensively across
-              the AI stack: from agents and RAG systems to MCPs and workflow
-              automation; database optimizations to full-stack development;
-              healthcare IT systems to digital marketing platforms. His recent
-              focus centers on redesigning our relationship with computers
-              through AI-powered business optimizations. He&apos;s worked
-              extensively with heavily regulated enterprises, startups and the
-              USG.
+              Brian&apos;s experience includes computational biology research
+              and machine learning, particularly with kernel methods on social
+              science data within The Institute for Quantitative Social Science
+              at Harvard. He holds degrees in Biology and Philosophy from Stony
+              Brook University, and is an avid Category Theory enthusiast.
             </Card>
             <br />
             <Card title="~mopfel-winrux" mode="left">
@@ -194,7 +157,44 @@ export default function TeamPage() {
             <br />
           </Grid>
         </div>
-        <div className={styles.rightColumn}>{/* Empty right column */}</div>
+        <div className={`${styles.rightColumn} ${styles.rightColumnStretch}`}>
+          <Card title="Jacob Lyles" mode="left" style={{ marginTop: "4.5rem" }}>
+            <Badge>cryptography</Badge> <Badge>machine learning</Badge>{" "}
+            <Badge>product engineering</Badge>
+            <br />
+            <br />
+            Jacob is a versatile product engineer with over a decade of
+            experience building secure systems and developer teams. He&apos;s an
+            original author of the Glacier Protocol, a widely adopted standard
+            for Bitcoin cold storage, and previously developed Bitcoin
+            inheritance solutions and wealth security tools at Casa. He
+            specializes in bringing new products to market, including the first
+            mobile app at Coursera. He has degrees in Computer Science
+            specializing in Machine Learning (UCSD) and Mathematics & Economics
+            (Wake Forest).
+          </Card>
+          <Card title="Phil Galebach" mode="left">
+            <Badge>data engineering</Badge>{" "}
+            <Badge>full-stack development</Badge> <Badge>AI optimization</Badge>
+            <br />
+            <br />
+            Phil is a data-focused technologist with a career spanning
+            statistician, senior data engineer, business intelligence manager,
+            digital health COO, and AI optimization specialist. Phil has a
+            particular passion for entrepreneurial work, founding his first
+            business while at Harvard.
+            <br />
+            <br />
+            Since diving headfirst into LLMs, he has worked extensively across
+            the AI stack: from agents and RAG systems to MCPs and workflow
+            automation; database optimizations to full-stack development;
+            healthcare IT systems to digital marketing platforms. His recent
+            focus centers on redesigning our relationship with computers through
+            AI-powered business optimizations. He&apos;s worked extensively with
+            heavily regulated enterprises, startups and the USG.
+          </Card>
+          <br />
+        </div>
       </div>
 
       <div className={styles.gridContainer} style={{ marginTop: "4rem" }}>
@@ -203,7 +203,7 @@ export default function TeamPage() {
             <Row>© 2025 Martian Engineering, LLC</Row>
           </Grid>
         </div>
-        <div className={styles.rightColumn}>{/* Empty right column */}</div>
+        <div className={`${styles.rightColumn} ${styles.rightColumnStretch}`}>{/* Empty right column */}</div>
       </div>
     </DefaultLayout>
   );
