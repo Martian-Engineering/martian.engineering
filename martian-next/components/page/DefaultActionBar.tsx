@@ -24,7 +24,6 @@ const DefaultActionBar: React.FC<DefaultActionBarProps> = ({ items = [] }) => {
   const handleHome = () => router.push('/');
   const handleTeam = () => router.push('/team');
   const handleWork = () => router.push('/work');
-  const handleBlog = () => router.push('/blog');
   const handleHire = () => router.push('/hire');
   const handleGitHub = () => window.open('https://github.com/martian-engineering', '_blank');
 
@@ -32,7 +31,6 @@ const DefaultActionBar: React.FC<DefaultActionBarProps> = ({ items = [] }) => {
   useHotkeys('ctrl+i', handleHome);
   useHotkeys('ctrl+t', handleTeam);
   useHotkeys('ctrl+w', handleWork);
-  useHotkeys('ctrl+b', handleBlog);
   useHotkeys('ctrl+h', handleHire);
   useHotkeys('ctrl+g', handleGitHub);
 
@@ -57,12 +55,6 @@ const DefaultActionBar: React.FC<DefaultActionBarProps> = ({ items = [] }) => {
             body: 'WORK',
             onClick: handleWork,
             selected: pathname === '/work',
-          },
-          {
-            hotkey: '⌃+B',
-            body: 'BLOG',
-            onClick: handleBlog,
-            selected: pathname === '/blog',
           },
           {
             hotkey: '⌃+H',
