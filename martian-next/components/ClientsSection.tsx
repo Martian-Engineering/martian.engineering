@@ -13,16 +13,67 @@ import { ClientData } from '@/common/markdown';
 import pageStyles from '@/app/page.module.scss';
 import styles from './ClientsSection.module.scss';
 import DropdownMenuTrigger from '@/components/DropdownMenuTrigger';
+import { usePathname, useRouter } from 'next/navigation';
 
 interface ClientsSectionProps {
   clients: ClientData[];
+  initialClientId?: string;
 }
 
-export default function ClientsSection({ clients }: ClientsSectionProps) {
-  const [selectedClient, setSelectedClient] = React.useState<string | null>(
-    clients.length > 0 ? clients[0].id : null
+export default function ClientsSection({ clients, initialClientId }: ClientsSectionProps) {
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const clientsById = React.useMemo(() => {
+    const map = new Map<string, ClientData>();
+    clients.forEach((client) => {
+      map.set(client.id, client);
+    });
+    return map;
+  }, [clients]);
+
+  const resolveClientId = React.useCallback(
+    (requestedClientId: string | null | undefined) => {
+      if (requestedClientId && clientsById.has(requestedClientId)) {
+        return requestedClientId;
+      }
+      return clients.length > 0 ? clients[0].id : null;
+    },
+    [clients, clientsById]
+  );
+
+  const [selectedClient, setSelectedClient] = React.useState<string | null>(() =>
+    resolveClientId(initialClientId)
   );
   const [isMobile, setIsMobile] = React.useState(false);
+
+  const selectedClientData = selectedClient ? clientsById.get(selectedClient) ?? null : null;
+
+  React.useEffect(() => {
+    const nextSelectedClient = resolveClientId(initialClientId);
+    if (nextSelectedClient !== selectedClient) {
+      setSelectedClient(nextSelectedClient);
+    }
+  }, [initialClientId, resolveClientId, selectedClient]);
+
+  const handleSelectClient = React.useCallback(
+    (clientId: string) => {
+      if (!clientsById.has(clientId)) {
+        return;
+      }
+
+      const targetPath = `/work/${clientId}`;
+
+      if (selectedClient !== clientId) {
+        setSelectedClient(clientId);
+      }
+
+      if (pathname !== targetPath) {
+        router.push(targetPath);
+      }
+    },
+    [clientsById, pathname, router, selectedClient]
+  );
 
   React.useEffect(() => {
     const checkMobile = () => {
@@ -46,7 +97,7 @@ export default function ClientsSection({ clients }: ClientsSectionProps) {
                   items={clients.map((client) => ({
                     icon: '✦',
                     children: client.short_name,
-                    onClick: () => setSelectedClient(client.id)
+                    onClick: () => handleSelectClient(client.id)
                   }))}
                 >
                   <div style={{ width: '100%' }}>
@@ -54,14 +105,13 @@ export default function ClientsSection({ clients }: ClientsSectionProps) {
                       icon="▾"
                       style={{ width: '100%', cursor: 'pointer' }}
                     >
-                      {selectedClient ? clients.find(c => c.id === selectedClient)?.short_name : 'Select Client'}
+                      {selectedClientData ? selectedClientData.short_name : 'Select Client'}
                     </ActionListItem>
                   </div>
                 </DropdownMenuTrigger>
-                {selectedClient && (() => {
-                  const client = clients.find(c => c.id === selectedClient);
-                  if (!client) return null;
-                  
+                {selectedClientData && (() => {
+                  const client = selectedClientData;
+
                   return (
                     <Card style={{ marginTop: '1rem' }}>
                       {/* Project Name and Logo in one row */}
@@ -195,8 +245,16 @@ export default function ClientsSection({ clients }: ClientsSectionProps) {
                     {clients.map((client) => (
                       <ActionListItem 
                         key={client.id}
-                        icon={`✦`}
-                        onClick={() => setSelectedClient(client.id)}
+                        icon="✦"
+                        href={`/work/${client.id}`}
+                        onClick={(event) => {
+                          if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) {
+                            return;
+                          }
+
+                          event.preventDefault();
+                          handleSelectClient(client.id);
+                        }}
                         style={{ 
                           opacity: selectedClient === client.id ? 1 : 0.6,
                           fontWeight: selectedClient === client.id ? 'bold' : 'normal',
@@ -209,10 +267,9 @@ export default function ClientsSection({ clients }: ClientsSectionProps) {
                   </div>
                 }
               >
-              {selectedClient && (() => {
-                const client = clients.find(c => c.id === selectedClient);
-                if (!client) return null;
-                
+              {selectedClientData && (() => {
+                const client = selectedClientData;
+
                 return (
                   <Card style={{ marginLeft: '2rem' }}>
                     {/* Project Name and Logo in one row */}
