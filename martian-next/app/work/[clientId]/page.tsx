@@ -1,12 +1,10 @@
-import { notFound } from 'next/navigation';
+import { notFound } from "next/navigation";
 
-import WorkPageContent from '../WorkPageContent';
-import { loadClientData } from '@/common/markdown';
+import WorkPageContent from "../WorkPageContent";
+import { loadClientData } from "@/common/markdown";
 
 interface WorkClientPageProps {
-  params: {
-    clientId: string;
-  };
+  params: Promise<{ clientId: string }>;
 }
 
 /**
@@ -14,7 +12,7 @@ interface WorkClientPageProps {
  */
 export default async function WorkClientPage({ params }: WorkClientPageProps) {
   const clients = await loadClientData();
-  const { clientId } = params;
+  const { clientId } = await params;
 
   const clientExists = clients.some((client) => client.id === clientId);
   if (!clientExists) {

@@ -1,6 +1,8 @@
-import * as Utilities from '@common/utilities';
+import type { NextApiRequest, NextApiResponse } from "next";
 
-import Cors from '@modules/cors';
+import * as Utilities from "@/common/utilities";
+
+import Cors from "@modules/cors";
 
 // NOTE(jimmylee)
 // import aesjs from 'aes-js';
@@ -42,58 +44,89 @@ export function decrypt(hex) {
 }
 */
 
-export function initMiddleware(middleware) {
-  return (req, res) =>
-    new Promise((resolve, reject) => {
-      middleware(req, res, (result) => {
+type Middleware = (
+  req: NextApiRequest,
+  res: NextApiResponse,
+  next: (result?: unknown) => void,
+) => void;
+
+/**
+ * Wraps connect-style middleware for use inside async Next.js API handlers.
+ */
+export function initMiddleware(middleware: Middleware) {
+  return (req: NextApiRequest, res: NextApiResponse) =>
+    new Promise<unknown>((resolve, reject) => {
+      middleware(req, res, (result?: unknown) => {
         if (result instanceof Error) {
-          return reject(result);
+          reject(result);
+          return;
         }
-        return resolve(result);
+        resolve(result);
       });
     });
 }
 
 export const cors = initMiddleware(
   Cors({
-    methods: ['GET', 'POST', 'DELETE', 'OPTIONS'],
-  })
+    methods: ["GET", "POST", "DELETE", "OPTIONS"],
+  }),
 );
 
-export async function setup(context): Promise<{ sessionKey?: any; viewer?: Record<string, any> | null }> {
-  let viewer = null;
-  let sessionKey = context.req.cookies['sitekey'] || '';
+interface RequestContext {
+  req: NextApiRequest;
+}
+
+export async function setup(
+  context: RequestContext,
+): Promise<{ sessionKey?: string; viewer?: Record<string, any> | null }> {
+  let viewer: Record<string, any> | null = null;
+  const sessionKey = context.req.cookies["sitekey"] ?? "";
 
   if (!Utilities.isEmpty(sessionKey)) {
     try {
-      const response = await fetch('https://api.internet.dev/api/users/viewer', {
-        method: 'PUT',
-        headers: { 'X-API-KEY': sessionKey, 'Content-Type': 'application/json' },
-      });
+      const response = (await fetch(
+        "https://api.internet.dev/api/users/viewer",
+        {
+          method: "PUT",
+          headers: {
+            "X-API-KEY": sessionKey,
+            "Content-Type": "application/json",
+          },
+        },
+      )) as Response;
       const result = await response.json();
       if (result && result.viewer) {
         viewer = result.viewer;
       }
-    } catch (e) {}
+    } catch {
+      // Preserve previous silent failure behavior when the lookup fails.
+    }
   }
 
   return { sessionKey, viewer };
 }
 
-export async function tryKeyWithoutCookie(key): Promise<{ sessionKey?: any; viewer?: Record<string, any> | null }> {
-  let viewer = null;
+export async function tryKeyWithoutCookie(
+  key: string,
+): Promise<{ sessionKey?: string; viewer?: Record<string, any> | null }> {
+  let viewer: Record<string, any> | null = null;
 
   if (!Utilities.isEmpty(key)) {
     try {
-      const response = await fetch('https://api.internet.dev/api/users/viewer', {
-        method: 'PUT',
-        headers: { 'X-API-KEY': key, 'Content-Type': 'application/json' },
-      });
+      const response = (await fetch(
+        "https://api.internet.dev/api/users/viewer",
+        {
+          method: "PUT",
+          headers: { "X-API-KEY": key, "Content-Type": "application/json" },
+        },
+      )) as Response;
       const result = await response.json();
       if (result && result.viewer) {
         viewer = result.viewer;
       }
-    } catch (e) {}
+    } catch {
+      // Preserve previous silent failure behavior when the lookup fails.
+    }
   }
 
   return { sessionKey: key, viewer };
