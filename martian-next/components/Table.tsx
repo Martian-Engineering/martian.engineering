@@ -4,11 +4,14 @@ import styles from '@/components/Table.module.scss';
 
 import * as React from 'react';
 
-type TableProps = React.HTMLAttributes<HTMLElement> & {
+type TableProps = React.TableHTMLAttributes<HTMLTableElement> & {
   children?: React.ReactNode;
 };
 
-const Table = ({ children, ...rest }) => {
+/**
+ * Simple table wrapper that applies shared styles and ensures children live inside tbody.
+ */
+const Table: React.FC<TableProps> = ({ children, ...rest }) => {
   return (
     <table className={styles.root} {...rest}>
       <tbody className={styles.body}>{children}</tbody>

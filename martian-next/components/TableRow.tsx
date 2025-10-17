@@ -4,11 +4,14 @@ import styles from '@/components/TableRow.module.scss';
 
 import * as React from 'react';
 
-type TableRowProps = React.HTMLAttributes<HTMLElement> & {
+type TableRowProps = React.ComponentPropsWithoutRef<"tr"> & {
   children?: React.ReactNode;
 };
 
-const TableRow = ({ children, ...rest }) => {
+/**
+ * Keyboard-focusable table row that mirrors native table semantics.
+ */
+const TableRow: React.FC<TableRowProps> = ({ children, ...rest }) => {
   return (
     <tr className={styles.root} tabIndex={0} {...rest}>
       {children}

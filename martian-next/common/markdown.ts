@@ -8,7 +8,7 @@ export interface ClientMetadata {
   website: string;
   duration: string;
   technologies: string[];
-  resources?: string[];
+  resources?: Array<string | { url: string; title?: string }>;
 }
 
 export interface ClientData extends ClientMetadata {
