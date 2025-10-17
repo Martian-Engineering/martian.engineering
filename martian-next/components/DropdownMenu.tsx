@@ -38,7 +38,6 @@ const DropdownMenu = React.forwardRef<HTMLDivElement, DropdownMenuProps>((props,
           return (
             <ActionListItem
               key={`action-items-${index}`}
-              children={each.children}
               icon={each.icon}
               href={each.href}
               target={each.target}
@@ -51,7 +50,9 @@ const DropdownMenu = React.forwardRef<HTMLDivElement, DropdownMenuProps>((props,
                   onClose();
                 }
               }}
-            />
+            >
+              {each.children}
+            </ActionListItem>
           );
         })}
 

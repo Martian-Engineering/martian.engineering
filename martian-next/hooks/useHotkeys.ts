@@ -2,6 +2,10 @@ import { useEffect } from 'react';
 
 export const useHotkeys = (key: string, callback: (event: KeyboardEvent) => void) => {
   useEffect(() => {
+    if (!key) {
+      return;
+    }
+
     const handleKeyDown = (event: KeyboardEvent) => {
       const keys = key.toLowerCase().split('+');
       const isCtrlOrCmd = keys.includes('ctrl') || keys.includes('cmd');
