@@ -7,6 +7,7 @@ import DefaultLayout from "@/components/page/DefaultLayout";
 import DefaultActionBar from "@/components/page/DefaultActionBar";
 import Grid from "@/components/Grid";
 import Card from "@/components/Card";
+import CardDouble from "@/components/CardDouble";
 import Row from "@/components/Row";
 import Text from "@/components/Text";
 import Button from "@/components/Button";
@@ -84,7 +85,7 @@ export default function HirePage() {
       <div className={styles.gridContainer} style={{ marginTop: "4rem" }}>
         <div className={styles.leftColumn}>
           <Grid>
-            <Card title="WHAT WE OFFER" mode="left">
+            <CardDouble title="WHAT WE OFFER" mode="left">
               <strong>Full-Stack Engineering Teams</strong>
               <br />
               From architecture to implementation, we deliver production-ready
@@ -106,7 +107,7 @@ export default function HirePage() {
               <br />
               Deep expertise in distributed systems, network protocols,
               security, and infrastructure.
-            </Card>
+            </CardDouble>
           </Grid>
         </div>
         <div className={styles.rightColumn}></div>
@@ -193,7 +194,7 @@ export default function HirePage() {
         </div>
         <div className={styles.rightColumn}>
           <Grid>
-            <Card title="WE'RE ALSO HIRING" mode="left">
+            <Card title="WE'RE HIRING" mode="left">
               Looking for engineers who get things done, love to learn, and want
               to use the best tools available to build high-quality software
               across diverse industries and tech stacks.

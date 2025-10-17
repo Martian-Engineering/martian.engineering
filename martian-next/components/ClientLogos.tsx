@@ -26,7 +26,7 @@ const ClientLogos: React.FC = () => {
             className={styles.logoLink}
             aria-label={`Visit ${client.name}`}
           >
-            <div 
+            <div
               className={styles.logoWrapper}
               style={client.scale ? { transform: `scale(${client.scale})` } : undefined}
             >
