@@ -24,7 +24,7 @@ export default function BlogPage() {
         <div className={styles.leftColumn}>
           <Grid>
             <Row>
-              <span style={{ color: 'red' }}>BLOG</span>
+              <span style={{ color: 'var(--theme-text-header, var(--color-red-80))' }}>BLOG</span>
             </Row>
             <br />
             <Row>
@@ -80,7 +80,7 @@ export default function BlogPage() {
           <Grid>
             <Card title="COMING SOON">
               We&apos;re currently building out our blog infrastructure. 
-              In the meantime, follow our technical work on <a href="https://github.com/martian-engineering" target="_blank" style={{ color: 'red' }}>GitHub</a>.
+              In the meantime, follow our technical work on <a href="https://github.com/martian-engineering" target="_blank" style={{ color: 'var(--theme-text-header, var(--color-red-80))' }}>GitHub</a>.
             </Card>
           </Grid>
         </div>
