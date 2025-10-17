@@ -16,7 +16,15 @@ const ActionListItem: React.FC<ActionListItemProps> = (props) => {
 
   if (href) {
     return (
-      <a className={styles.item} href={href} target={target} style={style} tabIndex={0} role="link">
+      <a
+        className={styles.item}
+        href={href}
+        target={target}
+        style={style}
+        tabIndex={0}
+        role="link"
+        onClick={onClick}
+      >
         <figure className={styles.icon}>{icon}</figure>
         <span className={styles.text}>{children}</span>
       </a>
