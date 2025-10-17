@@ -67,6 +67,14 @@ export default function HirePage() {
                 required for mission-critical software.
               </Text>
             </Row>
+            <Row style={{ marginTop: "1.5rem" }}>
+              <ActionListItem
+                icon={`⭢`}
+                href="mailto:clients@martian.engineering"
+              >
+                Start a project with us
+              </ActionListItem>
+            </Row>
           </Grid>
         </div>
         <div className={styles.rightColumn}>{/* Empty right column */}</div>
@@ -76,7 +84,7 @@ export default function HirePage() {
       <div className={styles.gridContainer} style={{ marginTop: "4rem" }}>
         <div className={styles.leftColumn}>
           <Grid>
-            <Card title="WHAT WE OFFER">
+            <Card title="WHAT WE OFFER" mode="left">
               <strong>Full-Stack Engineering Teams</strong>
               <br />
               From architecture to implementation, we deliver production-ready
@@ -101,6 +109,39 @@ export default function HirePage() {
             </Card>
           </Grid>
         </div>
+        <div className={styles.rightColumn}></div>
+      </div>
+
+      {/* Engagement Models */}
+      <div className={styles.gridContainer} style={{ marginTop: "2rem" }}>
+        <div className={styles.leftColumn}>
+          <Grid>
+            <Row>
+              <span className={styles.whyAccent}>ENGAGEMENT MODELS</span>
+            </Row>
+            <br />
+            <Row>
+              <Badge>PROJECT-BASED</Badge>
+            </Row>
+            <Row style={{ marginTop: "0.5rem" }}>
+              Fixed-scope engagements with clear deliverables
+            </Row>
+            <br />
+            <Row>
+              <Badge>TEAM AUGMENTATION</Badge>
+            </Row>
+            <Row style={{ marginTop: "0.5rem" }}>
+              Embedded engineers working alongside your team
+            </Row>
+            <br />
+            <Row>
+              <Badge>STRATEGIC CONSULTING</Badge>
+            </Row>
+            <Row style={{ marginTop: "0.5rem" }}>
+              Technical advisory and architecture reviews
+            </Row>
+          </Grid>
+        </div>
         <div className={styles.rightColumn}>{/* Empty right column */}</div>
       </div>
 
@@ -108,48 +149,25 @@ export default function HirePage() {
       <div className={styles.gridContainer} style={{ marginTop: "2rem" }}>
         <div className={styles.leftColumn}>
           <Grid>
-            <Card title="RECENT PROJECTS">
-              <ActionListItem icon={`⊹`}>
-                Custom MCP (Model Context Protocol) host with enterprise scaling
-              </ActionListItem>
-              <ActionListItem icon={`⊹`}>
-                Large-scale data ingestion pipeline and embeddings generation
-              </ActionListItem>
-              <ActionListItem icon={`⊹`}>
-                Peer-to-peer network protocol design with economic incentives
-              </ActionListItem>
-              <ActionListItem icon={`⊹`}>
-                AI-powered code review and development workflow automation
-              </ActionListItem>
-              <ActionListItem icon={`⊹`}>
-                Enterprise infrastructure modernization and cloud migration
-              </ActionListItem>
-            </Card>
-          </Grid>
-        </div>
-        <div className={styles.rightColumn}>{/* Empty right column */}</div>
-      </div>
-
-      {/* Engagement Models */}
-      <div className={styles.gridContainer} style={{ marginTop: "2rem" }}>
-        <div className={styles.leftColumn}>
-          <Grid>
-            <Card title="ENGAGEMENT MODELS">
-              <Row>
-                <Badge>PROJECT-BASED</Badge> Fixed-scope engagements with clear
-                deliverables
-              </Row>
-              <br />
-              <Row>
-                <Badge>TEAM AUGMENTATION</Badge> Embedded engineers working
-                alongside your team
-              </Row>
-              <br />
-              <Row>
-                <Badge>STRATEGIC CONSULTING</Badge> Technical advisory and
-                architecture reviews
-              </Row>
-            </Card>
+            <Row>
+              <span className={styles.whyAccent}>RECENT PROJECTS</span>
+            </Row>
+            <br />
+            <ActionListItem icon={`⊹`} href="/work/near-por">
+              Proof of Response network protocol implementation
+            </ActionListItem>
+            <ActionListItem icon={`⊹`} href="/work/sweetspot-mcp">
+              MCP as infrastructure for enterprise agents
+            </ActionListItem>
+            <ActionListItem icon={`⊹`} href="/work/sweetspot-usaspending">
+              USASpending data pipeline for agentic research
+            </ActionListItem>
+            <ActionListItem icon={`⊹`} href="/work/tlon">
+              Zenith + Janus integration for the Urbit ecosystem
+            </ActionListItem>
+            <ActionListItem icon={`⊹`} href="/work/extend">
+              PgBouncer rollout and observability improvements
+            </ActionListItem>
           </Grid>
         </div>
         <div className={styles.rightColumn}>{/* Empty right column */}</div>
@@ -159,9 +177,9 @@ export default function HirePage() {
       <div className={styles.gridContainer} style={{ marginTop: "4rem" }}>
         <div className={styles.leftColumn}>
           <Grid>
-            <Card title="START A CONVERSATION">
-              Tell us about your technical challenges and let&apos;s explore how we
-              can help.
+            <Card title="START A CONVERSATION" mode="left">
+              Tell us about your technical challenges and let&apos;s explore how
+              we can help.
               <br />
               <br />
               <a href="mailto:clients@martian.engineering">
@@ -173,14 +191,9 @@ export default function HirePage() {
             </Card>
           </Grid>
         </div>
-        <div className={styles.rightColumn}>{/* Empty right column */}</div>
-      </div>
-
-      {/* We're Also Hiring */}
-      <div className={styles.gridContainer} style={{ marginTop: "4rem" }}>
-        <div className={styles.leftColumn}>
+        <div className={styles.rightColumn}>
           <Grid>
-            <Card title="WE'RE ALSO HIRING">
+            <Card title="WE'RE ALSO HIRING" mode="left">
               Looking for engineers who get things done, love to learn, and want
               to use the best tools available to build high-quality software
               across diverse industries and tech stacks.
@@ -192,7 +205,6 @@ export default function HirePage() {
             </Card>
           </Grid>
         </div>
-        <div className={styles.rightColumn}>{/* Empty right column */}</div>
       </div>
 
       <div className={styles.gridContainer} style={{ marginTop: "4rem" }}>
