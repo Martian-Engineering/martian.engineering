@@ -79,7 +79,7 @@ export default function BlogPage() {
         <div className={styles.leftColumn}>
           <Grid>
             <Card title="COMING SOON">
-              We're currently building out our blog infrastructure. 
+              We&apos;re currently building out our blog infrastructure. 
               In the meantime, follow our technical work on <a href="https://github.com/martian-engineering" target="_blank" style={{ color: 'red' }}>GitHub</a>.
             </Card>
           </Grid>

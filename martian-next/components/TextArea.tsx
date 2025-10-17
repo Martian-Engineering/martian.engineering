@@ -67,7 +67,7 @@ function TextArea({ autoPlay, autoPlaySpeedMS = 40, isBlink, placeholder, onChan
     return () => {
       if (autoPlayIntervalRef.current) clearInterval(autoPlayIntervalRef.current);
     };
-  }, [autoPlay, rest.value, rest.defaultValue]);
+  }, [autoPlay, autoPlaySpeedMS, rest.value, rest.defaultValue]);
 
   const resizeTextArea = React.useCallback(() => {
     if (!textAreaRef.current) return;

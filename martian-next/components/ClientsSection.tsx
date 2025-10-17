@@ -14,6 +14,7 @@ import pageStyles from '@/app/page.module.scss';
 import styles from './ClientsSection.module.scss';
 import DropdownMenuTrigger from '@/components/DropdownMenuTrigger';
 import { usePathname, useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 interface ClientsSectionProps {
   clients: ClientData[];
@@ -144,19 +145,17 @@ export default function ClientsSection({ clients, initialClientId }: ClientsSect
                             width: '200px', // Fixed width container
                             height: '60px', // Fixed height container
                             background: 'transparent',
-                            textDecoration: 'none'
+                            textDecoration: 'none',
+                            position: 'relative'
                           }}
                         >
-                          <img 
-                            src={client.logo} 
+                          <Image
+                            src={client.logo}
                             alt={client.full_name}
-                            style={{ 
-                              maxWidth: '100%',
-                              maxHeight: '100%',
-                              width: 'auto',
-                              height: 'auto',
+                            fill
+                            sizes="200px"
+                            style={{
                               objectFit: 'contain',
-                              cursor: 'pointer',
                               filter: 'brightness(0) saturate(100%) invert(1)',
                               mixBlendMode: 'screen'
                             }}
@@ -302,19 +301,17 @@ export default function ClientsSection({ clients, initialClientId }: ClientsSect
                           width: '200px', // Fixed width container
                           height: '60px', // Fixed height container
                           background: 'transparent',
-                          textDecoration: 'none'
+                          textDecoration: 'none',
+                          position: 'relative'
                         }}
                       >
-                        <img 
-                          src={client.logo} 
+                        <Image
+                          src={client.logo}
                           alt={client.full_name}
-                          style={{ 
-                            maxWidth: '100%',
-                            maxHeight: '100%',
-                            width: 'auto',
-                            height: 'auto',
+                          fill
+                          sizes="200px"
+                          style={{
                             objectFit: 'contain',
-                            cursor: 'pointer',
                             filter: 'brightness(0) saturate(100%) invert(1)',
                             mixBlendMode: 'screen'
                           }}

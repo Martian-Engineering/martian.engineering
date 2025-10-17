@@ -160,7 +160,7 @@ export default function HirePage() {
         <div className={styles.leftColumn}>
           <Grid>
             <Card title="START A CONVERSATION">
-              Tell us about your technical challenges and let's explore how we
+              Tell us about your technical challenges and let&apos;s explore how we
               can help.
               <br />
               <br />

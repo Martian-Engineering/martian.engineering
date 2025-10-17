@@ -33,7 +33,7 @@ export default function WorkPageContent({ clients, initialClientId }: WorkPageCo
             </Row>
             <br />
             <Row>
-              We've partnered with innovative companies across various industries to solve their most challenging technical problems.
+              We&apos;ve partnered with innovative companies across various industries to solve their most challenging technical problems.
             </Row>
           </Grid>
         </div>

@@ -129,10 +129,11 @@ export default async function Page() {
                     </div>
                   </div>
                   <Text className={styles.testimonialQuote}>
-                    "Josh Lehman and his team have been incredible for us,
+                    &ldquo;Josh Lehman and his team have been incredible for us,
                     probably the best you could ever get when it comes to hiring
-                    engineering contractors. We're happy clients of theirs and
-                    will continue to be for any contracting work we need done."
+                    engineering contractors. We&apos;re happy clients of theirs
+                    and will continue to be for any contracting work we need
+                    done.&rdquo;
                   </Text>
                 </div>
               </div>
@@ -169,9 +170,7 @@ export default async function Page() {
                 <span className={styles.whyAccent}>
                   We drop into large existing codebases with ease
                 </span>{" "}
-                and ship the{" "}
-                <span className={styles.whyAccent}>production systems</span>{" "}
-                your team is counting on.
+                and ship the production systems your team is counting on.
               </Text>
             </Row>
             <Row style={{ marginTop: "1rem" }}>
@@ -253,10 +252,10 @@ export default async function Page() {
                   Josh has been leading software organizations for over a
                   decade. He has a knack for organizing teams of developers.
                   Most recently he was the Executive Director of the Urbit
-                  Foundation, where he worked closely with Theodore on Urbit's
-                  most ambitious core development projects. Previously Josh was
-                  the CTO and cofounder of Starcity (YC S16, acquired by Common
-                  in 2021).
+                  Foundation, where he worked closely with Theodore on
+                  Urbit&apos;s most ambitious core development projects.
+                  Previously Josh was the CTO and cofounder of Starcity (YC S16,
+                  acquired by Common in 2021).
                 </Indent>
               </Avatar>
               <br />
