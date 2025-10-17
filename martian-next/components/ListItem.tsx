@@ -5,7 +5,14 @@ import styles from './ListItem.module.scss';
 import * as React from 'react';
 import * as Utilities from '@/common/utilities';
 
-const ListItem = ({ children }) => {
+interface ListItemProps {
+  children: React.ReactNode;
+}
+
+/**
+ * Focusable list item that supports keyboard navigation with arrow keys and enter activation.
+ */
+const ListItem: React.FC<ListItemProps> = ({ children }) => {
   const itemRef = React.useRef<HTMLLIElement>(null);
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLLIElement>) => {
